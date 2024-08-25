@@ -48,7 +48,7 @@ services:
       POSTGRES_PASSWORD: mealie
       POSTGRES_USER: mealie
     healthcheck:
-      test: ["CMD", "pg_isready"]
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
       interval: 30s
       timeout: 20s
       retries: 3
